@@ -25,7 +25,7 @@ class PointsController < ApplicationController
   # POST /points.json
   def create
     p = point_params
-    p[:timestamp] = Time.at(p[:timestamp].to_i).utc
+    p[:timestamp] = Time.at(p[:timestamp].to_i/1000).utc
     @point = Point.new(p)
 
     respond_to do |format|

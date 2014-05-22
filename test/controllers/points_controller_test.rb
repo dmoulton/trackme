@@ -20,7 +20,7 @@ class PointsControllerTest < ActionController::TestCase
   def test_create
     point
     assert_difference('Point.count') do
-      post :create, {altitude: @point.altitude, bearing: @point.bearing, hdop: @point.hdop, lat: @point.lat, lon: @point.lon, profile_id: @point.profile_id, speed: @point.speed, timestamp: @point.timestamp.to_i, user_id: @point.user_id}
+      post :create, {altitude: @point.altitude, bearing: @point.bearing, hdop: @point.hdop, lat: @point.lat, lon: @point.lon, profile_id: @point.profile_id, speed: @point.speed, timestamp: @point.timestamp.to_i*1000, user_id: @point.user_id}
     end
 
     assert_response :success
