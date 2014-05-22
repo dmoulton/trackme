@@ -1,0 +1,41 @@
+<h1>Listing points</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Lat</th>
+      <th>Lon</th>
+      <th>Timestamp</th>
+      <th>Hdop</th>
+      <th>Altitude</th>
+      <th>Speed</th>
+      <th>Bearing</th>
+      <th>Profile</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @points.each do |point| %>
+      <tr>
+        <td><%= point.lat %></td>
+        <td><%= point.lon %></td>
+        <td><%= point.timestamp %></td>
+        <td><%= point.hdop %></td>
+        <td><%= point.altitude %></td>
+        <td><%= point.speed %></td>
+        <td><%= point.bearing %></td>
+        <td><%= point.profile_id %></td>
+        <td><%= point.user_id %></td>
+        <td><%= link_to 'Show', point %></td>
+        <td><%= link_to 'Edit', edit_point_path(point) %></td>
+        <td><%= link_to 'Destroy', point, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Point', new_point_path %>
