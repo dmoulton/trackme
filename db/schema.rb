@@ -13,6 +13,10 @@
 
 ActiveRecord::Schema.define(version: 20140522041310) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "hstore"
+
   create_table "points", force: true do |t|
     t.float    "lat"
     t.float    "lon"
