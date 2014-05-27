@@ -5,6 +5,16 @@ class PointsController < ApplicationController
   # GET /points.json
   def index
     @points = Point.all
+    @highlat = -91
+    @lowlat = 91
+    @highlng = -181
+    @lowlng = 181
+    @points.each do |point|
+      @highlat = point.lat if point.lat > @highlat
+      @lowlat = point.lat if point.lat < @lowlat
+      @highlng = point.lng if point.lng > @highlng
+      @lowlng = point.lng if point.lng < @lowlng
+    end
   end
 
   # GET /points/1
