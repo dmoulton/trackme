@@ -4,7 +4,14 @@ class PointsController < ApplicationController
   # GET /points
   # GET /points.json
   def index
-    @points = Point.all
+    if params[:start_time] && params[:end_time]
+      s = params[:start_time]
+      e = params[:end_time]
+      @points = Point.where("timestamp > to_timestamp(?) AND timestamp < to_timestamp(?)",s,e)
+    else
+      @points = Point.all
+    end
+
     @highlat = -91
     @lowlat = 91
     @highlng = -181

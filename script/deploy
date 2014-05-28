@@ -1,0 +1,46 @@
+#! /bin/sh
+
+USAGE="\
+Usage: `basename $0` [-hspbma]\n
+    h -> this help text\n
+    p -> RAILS_ENV=production\n
+    b -> bundle install\n
+    m -> rake db:migrate\n
+    a -> rake  assets:precompile\n
+"
+if [ $# -eq 0 ]; then
+    echo $USAGE >&2
+    exit 1
+fi
+
+while getopts hspdbmarv: OPT; do
+    case "$OPT" in
+        h)
+            echo $USAGE
+            exit 0
+            ;;
+        p)
+          echo "RAILS_ENV=production\n"
+          export RAILS_ENV=production
+	        ;;
+        b)
+          echo "bundle install"
+          bundle install
+          ;;
+        m)
+          echo "rake db:migrate"
+          rake db:migrate
+          ;;
+        a)
+          echo "rake assets:precompile"
+          rake assets:precompile
+          ;;
+        r)
+          echo "hard restart not implemented"
+          ;;
+
+    esac
+done
+
+echo "restarting....\n"
+kill -s USR2 `cat tmp/unicorn.pid`

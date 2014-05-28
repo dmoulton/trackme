@@ -1,0 +1,24 @@
+#! /bin/sh
+
+USAGE="\
+Usage: `basename $0` [-hsp]\n
+    h -> this help text\n
+    p -> RAILS_ENV=production\n
+"
+if [ $# -eq 0 ]; then
+    echo $USAGE >&2
+    exit 1
+fi
+
+while getopts hspdbmarv: OPT; do
+    case "$OPT" in
+      h)
+          echo $USAGE
+          exit 0
+          ;;
+    	p)
+    	    echo "starting server in production mode\n"
+                unicorn_rails -c config/unicorn.rb -D -E production
+    	    ;;
+   esac
+done

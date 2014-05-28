@@ -1,0 +1,19 @@
+#! /bin/sh
+
+USAGE="\
+Usage: `basename $0` [-h]\n
+    h -> this help text\n
+"
+
+while getopts hspbmarv: OPT; do
+    case "$OPT" in
+        h)
+            echo $USAGE
+            exit 0
+            ;;
+   esac
+done
+
+echo "stopping server\n"
+kill -9 `cat tmp/unicorn.pid`
+rm tmp/unicorn.pid

@@ -9,7 +9,7 @@
     $scope.center = {}
     $scope.markers = {}
 
-    PointSvc.getPoints().then (result) ->
+    PointSvc.getPoints(1400629955,1401062019).then (result) ->
       leafletData.getMap().then (map) ->
         map.fitBounds [
           [

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get '/add_point' => 'points#create'
 
+  get 'points/:start_time/:end_time/index' => 'points#index'
   resources :points
 
   # The priority is based upon order of creation: first created -> highest priority.
