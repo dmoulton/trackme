@@ -1,4 +1,18 @@
 <div class="info country f32">
- <input type="datetime" name="start_time">
+ <p>
+   <legend>
+     Start Time
+   </legend>
+   <quick-datepicker ng-model='startTime' icon-class='fa fa-calendar' label-format='EEEE, MMMM d, yyyy  HH:MM'></quick-datepicker>
+ </p>
+ <p>
+   <legend>
+     End Time
+   </legend>
+   <quick-datepicker ng-model='endTime' icon-class='fa fa-calendar' label-format='EEEE, MMMM d, yyyy  HH:MM'></quick-datepicker>
+ <p>
+   <p>
+     <a href="javascript:;" ng-click="updateMap()">Update Map</a>
+   </p>
 </div>
 <leaflet height="100%" paths="paths" markers="markers" ></leaflet>
