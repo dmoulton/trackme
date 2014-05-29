@@ -1,4 +1,4 @@
-@app = angular.module("trackme", ["leaflet-directive","ui.router","ui.bootstrap.datetimepicker"]).config ($stateProvider, $urlRouterProvider) ->
+@app = angular.module("trackme", ["leaflet-directive","ui.router","ui.bootstrap.datetimepicker","ui.dateTimeInput"]).config ($stateProvider, $urlRouterProvider) ->
   $stateProvider.state("tracks",
     url: "/"
     templateUrl: "templates/tracks.html"

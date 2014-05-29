@@ -33,9 +33,10 @@ div.controls {
 
 div.datepick {
   margin-top: 1em;
-  width: 27em;
+  width: 21em;
 }
 
 div.ctrlBottom {
   margin-top: 1em;
+  margin-bottom: 1em;
 }

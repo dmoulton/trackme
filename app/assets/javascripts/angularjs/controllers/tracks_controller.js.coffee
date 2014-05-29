@@ -46,7 +46,8 @@
     $scope.showMenu = (s) ->
       $scope.showControls = s
 
-    today = Math.round(new Date().getTime() / 1000)
-    yesterday = today - 86400
-    getMap(today,yesterday)
+    $scope.endTime = moment()
+    $scope.startTime = $scope.endTime.clone().subtract('days',1)
+    getMap($scope.startTime,$scope.endTime)
+    $scope.showMenu(true)
 ]
