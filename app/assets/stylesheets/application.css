@@ -20,19 +20,22 @@ html {
 
 body, html { height: 100%; }
 
-.info {
+div.controls {
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    z-index: 100;
+    padding: .2em .5em;
+    line-height: 1.1em;
     background: rgba(255, 255, 255, 0.9);
     border-radius: 5px;
 }
 
-div.country {
-    font-size: 2em;
-    font-weight: bold;
-    position: absolute;
-    top: 3em;
-    left: .5em;
-    z-index: 100;
-    padding: .2em .5em;
-    line-height: 1.1em;
-    text-align: center;
+div.datepick {
+  margin-top: 1em;
+  width: 27em;
+}
+
+div.ctrlBottom {
+  margin-top: 1em;
 }

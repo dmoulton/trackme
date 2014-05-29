@@ -43,6 +43,9 @@
       e = Math.round(new Date($scope.endTime).getTime() / 1000)
       getMap(s,e)
 
+    $scope.showMenu = (s) ->
+      $scope.showControls = s
+
     today = Math.round(new Date().getTime() / 1000)
     yesterday = today - 86400
     getMap(today,yesterday)
